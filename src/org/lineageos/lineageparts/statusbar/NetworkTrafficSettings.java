@@ -22,6 +22,7 @@ import android.widget.Toast;
 
 import androidx.preference.DropDownPreference;
 import androidx.preference.Preference;
+import androidx.preference.PreferenceScreen;
 
 import lineageos.preference.LineageSecureSettingSwitchPreference;
 import lineageos.providers.LineageSettings;
@@ -39,12 +40,16 @@ public class NetworkTrafficSettings extends SettingsPreferenceFragment
     private LineageSecureSettingSwitchPreference mNetTrafficAutohide;
     private DropDownPreference mNetTrafficUnits;
     private LineageSecureSettingSwitchPreference mNetTrafficShowUnits;
+    
+    private LineageSecureSettingSwitchPreference mNetTrafficLayout; 
+    private LineageSecureSettingSwitchPreference mNetTrafficArrow;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.network_traffic_settings);
         final ContentResolver resolver = getActivity().getContentResolver();
+        final PreferenceScreen prefScreen = getPreferenceScreen();
 
         mNetTrafficMode = findPreference(LineageSettings.Secure.NETWORK_TRAFFIC_MODE);
         mNetTrafficMode.setOnPreferenceChangeListener(this);
@@ -63,6 +68,12 @@ public class NetworkTrafficSettings extends SettingsPreferenceFragment
 
         mNetTrafficShowUnits = findPreference(LineageSettings.Secure.NETWORK_TRAFFIC_SHOW_UNITS);
         mNetTrafficShowUnits.setOnPreferenceChangeListener(this);
+
+        mNetTrafficLayout = findPreference(LineageSettings.Secure.NETWORK_TRAFFIC_LAYOUT);
+        mNetTrafficLayout.setOnPreferenceChangeListener(this);
+
+        mNetTrafficArrow = findPreference(LineageSettings.Secure.NETWORK_TRAFFIC_SHOW_ARROW);
+        mNetTrafficArrow.setOnPreferenceChangeListener(this);
 
         updateEnabledStates(mode);
         updateForClockConflicts();
@@ -89,6 +100,8 @@ public class NetworkTrafficSettings extends SettingsPreferenceFragment
         mNetTrafficAutohide.setEnabled(enabled);
         mNetTrafficUnits.setEnabled(enabled);
         mNetTrafficShowUnits.setEnabled(enabled);
+        if (mNetTrafficLayout != null) mNetTrafficLayout.setEnabled(enabled);
+        if (mNetTrafficArrow != null) mNetTrafficArrow.setEnabled(enabled);
     }
 
     private void updateForClockConflicts() {
