@@ -46,4 +46,15 @@
         android:summary="@string/network_traffic_show_units_summary"
         android:defaultValue="true" />
 
+    <lineageos.preference.LineageSecureSettingSwitchPreference
+        android:key="network_traffic_layout"
+        android:title="@string/network_traffic_layout_title"
+        android:summary="@string/network_traffic_layout_summary"
+        android:defaultValue="false" />
+
+    <lineageos.preference.LineageSecureSettingSwitchPreference
+        android:key="network_traffic_show_arrow"
+        android:title="@string/network_traffic_arrow_title"
+        android:defaultValue="true" />
+
 </PreferenceScreen>

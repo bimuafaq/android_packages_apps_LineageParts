@@ -497,6 +497,9 @@
     <string name="network_traffic_show_units">Show units</string>
     <string name="network_traffic_show_units_summary">Whether to show traffic measurement units in the statusbar</string>
     <string name="network_traffic_disabled_clock">Network traffic disabled due to clock position</string>
+    <string name="network_traffic_layout_title">Horizontal layout</string>
+    <string name="network_traffic_layout_summary">Enable for single line view, disable for vertical view</string>
+    <string name="network_traffic_arrow_title">Show activity arrows</string>
 
     <!-- Protected apps -->
     <string name="protected_apps_manager_title">Protected apps</string>
