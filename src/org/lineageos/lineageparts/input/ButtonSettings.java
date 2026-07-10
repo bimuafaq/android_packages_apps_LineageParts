@@ -86,6 +86,7 @@ public class ButtonSettings extends SettingsPreferenceFragment
     private static final String KEY_VOLUME_KEY_CURSOR_CONTROL = "volume_key_cursor_control";
     private static final String KEY_SWAP_VOLUME_BUTTONS = "swap_volume_buttons";
     private static final String KEY_VOLUME_PANEL_ON_LEFT = "volume_panel_on_left";
+    private static final String KEY_SHOW_APP_VOLUME = "show_app_volume";
     private static final String KEY_VOLUME_WAKE_SCREEN = "volume_wake_screen";
     private static final String KEY_VOLUME_ANSWER_CALL = "volume_answer_call";
     private static final String KEY_DISABLE_NAV_KEYS = "disable_nav_keys";
@@ -136,6 +137,7 @@ public class ButtonSettings extends SettingsPreferenceFragment
     private SwitchPreference mVolumeMusicControls;
     private SwitchPreference mSwapVolumeButtons;
     private SwitchPreference mVolumePanelOnLeft;
+    private SwitchPreference mShowAppVolume;
     private SwitchPreference mDisableNavigationKeys;
     private SwitchPreference mNavigationArrowKeys;
     private ListPreference mNavigationBackLongPressAction;
@@ -425,6 +427,14 @@ public class ButtonSettings extends SettingsPreferenceFragment
             mVolumePanelOnLeft = prefScreen.findPreference(KEY_VOLUME_PANEL_ON_LEFT);
             if (mVolumePanelOnLeft != null) {
                 mVolumePanelOnLeft.setChecked(volumePanelOnLeft);
+            }
+
+            final boolean showAppVolume = LineageSettings.Secure.getIntForUser(
+                    getContentResolver(), LineageSettings.Secure.SHOW_APP_VOLUME, 0,
+                    UserHandle.USER_CURRENT) != 0;
+            mShowAppVolume = prefScreen.findPreference(KEY_SHOW_APP_VOLUME);
+            if (mShowAppVolume != null) {
+                mShowAppVolume.setChecked(showAppVolume);
             }
         } else {
             extrasCategory.removePreference(findPreference(KEY_CLICK_PARTIAL_SCREENSHOT));
@@ -817,6 +827,11 @@ public class ButtonSettings extends SettingsPreferenceFragment
                     LineageSettings.Secure.VOLUME_PANEL_ON_LEFT,
                     mVolumePanelOnLeft.isChecked() ? 1 : 0, UserHandle.USER_CURRENT);
             return true;
+        } else if (preference == mShowAppVolume) {
+            LineageSettings.Secure.putIntForUser(getActivity().getContentResolver(),
+                    LineageSettings.Secure.SHOW_APP_VOLUME,
+                    mShowAppVolume.isChecked() ? 1 : 0, UserHandle.USER_CURRENT);
+            return true;
         } else if (preference == mDisableNavigationKeys) {
             mDisableNavigationKeys.setEnabled(false);
             mNavigationPreferencesCat.setEnabled(false);
@@ -929,6 +944,7 @@ public class ButtonSettings extends SettingsPreferenceFragment
                 result.add(KEY_VOLUME_KEY_CURSOR_CONTROL);
                 result.add(KEY_VOLUME_MUSIC_CONTROLS);
                 result.add(KEY_VOLUME_PANEL_ON_LEFT);
+                result.add(KEY_SHOW_APP_VOLUME);
                 result.add(KEY_VOLUME_WAKE_SCREEN);
                 result.add(KEY_CLICK_PARTIAL_SCREENSHOT);
             } else if (!DeviceUtils.canWakeUsingVolumeKeys(context)) {

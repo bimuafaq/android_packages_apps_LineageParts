@@ -208,6 +208,8 @@
     <string name="swap_volume_buttons_summary">Swap volume buttons when the screen is rotated</string>
     <string name="volume_panel_on_left_title">Show panel on left</string>
     <string name="volume_panel_on_left_summary">Display volume panel on the left side of the screen</string>
+    <string name="show_app_volume_title">Show app volume</string>
+    <string name="show_app_volume_summary">Show per-app volume rows in volume panel</string>
     <string name="button_wake_title">Wake device</string>
     <string name="volume_answer_call_title">Answer call</string>
     <string name="volume_answer_call_summary">Answer incoming calls by pressing the volume buttons</string>
