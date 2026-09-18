@@ -64,4 +64,10 @@
         android:summary="@string/mobile_data_icon_style_summary"
         android:defaultValue="false" />
 
+    <lineageos.preference.LineageSecureSettingSwitchPreference
+        android:key="show_fourg"
+        android:title="@string/show_fourg_title"
+        android:summary="@string/show_fourg_summary"
+        android:defaultValue="false" />
+
 </PreferenceScreen>
