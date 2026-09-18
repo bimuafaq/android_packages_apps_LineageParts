@@ -58,4 +58,10 @@
         android:summary="@string/network_traffic_arrow_summary"
         android:defaultValue="true" />
 
+    <lineageos.preference.LineageSecureSettingSwitchPreference
+        android:key="mobile_data_icon_style"
+        android:title="@string/mobile_data_icon_style_title"
+        android:summary="@string/mobile_data_icon_style_summary"
+        android:defaultValue="false" />
+
 </PreferenceScreen>

@@ -519,6 +519,10 @@
     <string name="network_traffic_arrow_title">Show activity arrows</string>
     <string name="network_traffic_arrow_summary">Show network activity indicators</string>
 
+    <!-- Combined mobile data icon (type+activity) -->
+    <string name="mobile_data_icon_style_title">Show data activity on icon</string>
+    <string name="mobile_data_icon_style_summary">Show network activity on data icon</string>
+
     <!-- Protected apps -->
     <string name="protected_apps_manager_title">Protected apps</string>
     <string name="protected_apps_manager_summary">Manage which apps are hidden behind a secure lock</string>
