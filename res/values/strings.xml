@@ -518,6 +518,8 @@
     <string name="network_traffic_layout_summary">Enable for single line view, disable for vertical view</string>
     <string name="network_traffic_arrow_title">Show activity arrows</string>
     <string name="network_traffic_arrow_summary">Show network activity indicators</string>
+    <string name="network_traffic_as_status_icon_title">Show as status icon</string>
+    <string name="network_traffic_as_status_icon_summary">Show network traffic between alarm and connectivity icons</string>
 
     <!-- Combined mobile data icon (type+activity) -->
     <string name="mobile_data_icon_style_title">Show data activity on icon</string>

@@ -59,6 +59,12 @@
         android:defaultValue="true" />
 
     <lineageos.preference.LineageSecureSettingSwitchPreference
+        android:key="network_traffic_as_status_icon"
+        android:title="@string/network_traffic_as_status_icon_title"
+        android:summary="@string/network_traffic_as_status_icon_summary"
+        android:defaultValue="false" />
+
+    <lineageos.preference.LineageSecureSettingSwitchPreference
         android:key="mobile_data_icon_style"
         android:title="@string/mobile_data_icon_style_title"
         android:summary="@string/mobile_data_icon_style_summary"
